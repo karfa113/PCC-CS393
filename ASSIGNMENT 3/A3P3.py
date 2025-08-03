@@ -1,14 +1,9 @@
-import string
-pangram = True
+def ispangram(s):
+    c = set()
+    for i in s:
+        if i.isalpha() and i not in c:
+            c.add(i)
+    return len(c) == 26
 
 user = list(input("Enter a sentence: ").lower())
-letters = list(string.ascii_lowercase)
-
-for i in letters:
-    if i not in user:
-        pangram = False
-    
-if pangram:
-    print("It is a Pangram")
-else:
-    print("It is NOT a Pangram")
+print(f"Pangram" if ispangram(user) else "Not Pangram")

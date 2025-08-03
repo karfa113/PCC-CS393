@@ -1,61 +1,46 @@
-import string
-
-def encryption(user, int):
-    letters = list(string.ascii_lowercase)
-    output = []
-
-    for ch in user:
-        if ch in letters:
-            index = letters.index(ch)
-            new_index = (index + key) % 26
-            output.append(letters[new_index])
-
+def encryption(s, key):
+    enc = ""
+    for ch in s:
+        if ch.isalpha():
+            enc += chr((ord(ch) - ord('a') + key) % 26 + ord('a'))
         elif ch.isdigit():
-            digit = int(ch)
-            new_digit = (digit + key) % 10
-            output.append(str(new_digit))
-
+            enc += str((int(ch) + key) % 10)
         else:
-            output.append(ch)
+            enc += ch
+    print(f"Input - {''.join(s)}")
+    print(f"Encrypted message - {enc}")
 
-    print("The output is: ")   
-    for ch in output:
-        print(ch,end="")
-
-def decryption(user, int):
-    letters = list(string.ascii_lowercase)
-    output = []
-
-    for ch in user:
-        if ch in letters:
-            index = letters.index(ch)
-            new_index = (index - key) % 26
-            output.append(letters[new_index])
-
+def decryption(s, key):
+    dec = ""
+    for ch in s:
+        if ch.isalpha():
+            dec += chr((ord(ch) - ord('a') - key) % 26 + ord('a'))
         elif ch.isdigit():
-            digit = int(ch)
-            new_digit = (digit - key) % 10
-            output.append(str(new_digit))
-
+            dec += str((int(ch) - key) % 10)
         else:
-            output.append(ch)
+            dec += ch
+    print(f"Input - {''.join(s)}")
+    print(f"Decrypted message - {dec}")
 
-    print("The output is: ")   
-    for ch in output:
-        print(ch,end="")
-    
 while True:
     choice = input("\nEnter E to encode, D to decode (q to quit): ").lower()
     if choice == "q":
-        print("Thank You !")
+        print("Thank you!")
         break
     text = input("Enter the text: ").lower()
-    key = int(input("Enter the key: "))
+    try:
+        key = int(input("Enter the key (1–25): "))
+    except ValueError:
+        print("Invalid key, must be a number.")
+        continue
+
+    if not (0 < key < 26):
+        print("Invalid key: must be between 1 and 25.")
+        continue
 
     if choice == "e":
         encryption(text, key)
     elif choice == "d":
         decryption(text, key)
     else:
-        print("Invalid Choice")
-        continue     
+        print("Invalid choice.")
