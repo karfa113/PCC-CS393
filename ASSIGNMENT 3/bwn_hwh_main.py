@@ -31,18 +31,18 @@ def fare(source, dest):
         dist = sum(path[end:start])
 
     if dist <= 15000:
-        fare_rs = 5
+        fare = 5
     elif dist <= 45000:
-        fare_rs = 10
+        fare = 10
     elif dist <= 75000:
-        fare_rs = 15
+        fare = 15
     elif dist <= 150000:
-        fare_rs = 20
+        fare = 20
     else:
-        fare_rs = ceil(20 + ((dist - 150000) / 15000)) * 5  
+        fare = ceil(20 + ((dist - 150000) / 15000)) * 5  
 
     print(f"\nTotal Distance: {dist} meters (~{dist / 1000:.2f} km)")
-    print(f"Approximate Fare: ₹{fare_rs}")
+    print(f"Approximate Fare: ₹{fare}")
 
 st = {
     "HWH": "Howrah Junction",       "LLH": "Liluah",              "BEQ": "Belur",
