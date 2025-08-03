@@ -1,5 +1,5 @@
 num = int(input("Enter a number: "))
-
+ 
 while num > 9:
     sum = 0
     while num > 0:
