@@ -1,4 +1,4 @@
-from math import ceil
+from math import ceil  
 
 def fare(source, dest):
     stations = [
