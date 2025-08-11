@@ -6,4 +6,4 @@ def ispangram(s):
     return len(c) == 26
 
 user = list(input("Enter a sentence: ").lower())
-print(f"Pangram" if ispangram(user) else "Not Pangram")
+print("Pangram" if ispangram(user) else "Not Pangram")

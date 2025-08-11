@@ -29,7 +29,7 @@ while True:
         break
     text = input("Enter the text: ").lower()
     try:
-        key = int(input("Enter the key (1–25): "))
+        key = int(input("Enter the key (1-25): "))
     except ValueError:
         print("Invalid key, must be a number.")
         continue
