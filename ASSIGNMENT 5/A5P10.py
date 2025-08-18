@@ -1,7 +1,5 @@
-nums = list(map(int, input("Enter numbers seperated by space: ").split()))
-sum = 0
-for num in nums:
-    if num > 0:
-        sum += num
+def sum_positive(*args):
+    return sum(x for x in args if x > 0)
 
-print("Sum of positive numbers: ", sum)
+numbers = map(int, input("Enter numbers separated by space: ").split())
+print("Sum of positive numbers:", sum_positive(*numbers))
