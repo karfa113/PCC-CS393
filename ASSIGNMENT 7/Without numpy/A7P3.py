@@ -4,7 +4,7 @@ def create_matrix(rows=3, cols=3):
     return [[random.randint(1, 9) for i in range(cols)] for i in range(rows)]
 
 def elementwise_multiply(m1, m2):
-    return [[matrix1[i][j] * matrix2[i][j] for j in range(3)] for i in range(3)]
+    return [[m1[i][j] * m2[i][j] for j in range(3)] for i in range(3)]
 
 matrix1 = create_matrix()
 print("Matrix 1: ")
